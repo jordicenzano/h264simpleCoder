@@ -13,3 +13,8 @@ Usage example:
 
 More information on: http://jordicenzano.name/2014/08/31/the-source-code-of-a-minimal-h264-encoder-c/
 
+
+Generating a YUV file
+A 10 second yuv file (SQCIF 128x96) with a test image can be made with this ffmpeg command
+> ffmpeg -f lavfi -i testsrc -t 10  -s sqcif -pix_fmt yuv420p AVsyncTest.yuv
+
