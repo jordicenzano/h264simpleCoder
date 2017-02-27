@@ -128,7 +128,7 @@ void CJOCh264bitstream::savebufferbyte(bool bemulationprevention)
 		*/
 
 		//Check if emulation prevention is needed (emulation prevention is byte align defined)
-		if ((m_buffer[((m_nStartingbyte + 0) % BUFFER_SIZE_BYTES)] == 0x00)&&(m_buffer[((m_nStartingbyte + 1) % BUFFER_SIZE_BYTES)] == 0x00)&&((m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] = 0x00)||(m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] = 0x01)||(m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] = 0x02)||(m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] = 0x03)))
+		if ((m_buffer[((m_nStartingbyte + 0) % BUFFER_SIZE_BYTES)] == 0x00)&&(m_buffer[((m_nStartingbyte + 1) % BUFFER_SIZE_BYTES)] == 0x00)&&((m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] == 0x00)||(m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] == 0x01)||(m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] == 0x02)||(m_buffer[((m_nStartingbyte + 2) % BUFFER_SIZE_BYTES)] == 0x03)))
 		{
 			int nbuffersaved = 0;
 			unsigned char cEmulationPreventionByte = H264_EMULATION_PREVENTION_BYTE;
