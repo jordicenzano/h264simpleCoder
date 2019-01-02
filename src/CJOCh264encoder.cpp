@@ -106,7 +106,6 @@ void CJOCh264encoder::create_sps (int nImW, int nImH, int nMbW, int nMbH, int nF
 	addbits(0x0,1);  //bitstream_restriction_flag
 	//END VUI
 
-	addbits(0x0,1); // frame_mbs_only_flag
 	addbits(0x1,1); // rbsp stop bit
 
 	dobytealign();
