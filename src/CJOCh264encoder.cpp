@@ -149,10 +149,10 @@ void CJOCh264encoder::create_slice_header(unsigned long lFrameNum)
 	addexpgolombunsigned(7); // slice_type
 	addexpgolombunsigned(0); // pic_param_set_id
 
-	unsigned char cFrameNum = lFrameNum % 16; //(2⁴)
+	unsigned char cFrameNum = 0; // FrameNum=0 for IDR frames [otherwise lFrameNum % 16; //(2⁴)]
 	addbits (cFrameNum,4); // frame_num ( numbits = v = log2_max_frame_num_minus4 + 4)
 
-	unsigned long lidr_pic_id = lFrameNum % 512;
+	unsigned long lidr_pic_id = lFrameNum % 512; // could be % 65536 as valid range 0..65536
 	//idr_pic_flag = 1
 	addexpgolombunsigned(lidr_pic_id); // idr_pic_id
 	addbits(0x0,4); // pic_order_cnt_lsb (numbits = v = log2_max_fpic_order_cnt_lsb_minus4 + 4)
